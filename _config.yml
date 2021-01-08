@@ -4,7 +4,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://JiHongKim15.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Author
-author-name:    JiHong Kim
+author-name:    꿀물
 author-image:   profile.gif
 author-job:     Developer
 author-email:   15computer@hanmail.net # Add your email for contant form.
@@ -13,7 +13,7 @@ about-author:   I am a web developer focusing on front-end development. Always h
 
 # Social settings
 social-facebook:
-social-github:    JiHongKim
+social-github:    JiHongKim15
 social-pinterest: 
 social-instagram: 
 social-youtube:
