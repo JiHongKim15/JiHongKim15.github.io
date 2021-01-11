@@ -18,7 +18,7 @@ google_analytics: #UA—XXXXXXXX-X
 disqus_shortname: #disqus shortname
 
 user:
-  name: Catbook
+  name: 꿀물
   pic: /assets/img/cat.jpg
   picAlt: "catbook"
   job: a category-centric theme
