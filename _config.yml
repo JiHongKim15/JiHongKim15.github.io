@@ -21,7 +21,7 @@ user:
   name: 꿀물
   pic: /assets/img/profile.gif
   picAlt: "페어리몬"
-  job: 컴퓨터
+  job: 개발자를 꿈꾸며
   aboutme: true # comment this out if you don't need the 'about' page.
 
 exclude:
