@@ -791,7 +791,7 @@ p
     {
         display: block;
         cursor: pointer;
-        color: #6ed5f5;
+        color: #717780;
         border-bottom: 1px dashed #B0B9C5;
         padding: 1.125em 1.125em 1.125em 0;
         &:before
@@ -806,8 +806,8 @@ p
         }
         &:hover
         {
-            color: #6ed5f5;
-            border-bottom-color: #6ed5f5;
+            color: #8b8a22;
+            border-bottom-color: #434a58;
         }
     }
     .pure-tree_link
@@ -821,7 +821,7 @@ p
             text-decoration: none;
             &:hover
             {
-                color: #6ed5f5;
+                color: #8b8a22;
             }
         }
     }
@@ -834,8 +834,8 @@ p
         display: none;
         &:checked + label 
         {
-            color: #6ed5f5;
-            border-bottom-color: #6ed5f5;
+            color: #8b8a22;
+            border-bottom-color: #434a58;
         }
         &:checked ~ ul > li
         {
