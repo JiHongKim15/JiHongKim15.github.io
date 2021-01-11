@@ -724,18 +724,7 @@ img {
 }
 
 .top-pure{
-body
-{
-    font-family: 'Open Sans', sans-serif;
-    font-size: 16px;
-    font-weight: 300;
-    line-height: 1em;
 
-    text-align: center;
-
-    color: #444444;
-    background-color: #d0d0d0;
-}
 h1
 {
     font-size: 2.5em;
@@ -802,7 +791,7 @@ p
     {
         display: block;
         cursor: pointer;
-        color: #717780;
+        color: #6ed5f5;
         border-bottom: 1px dashed #B0B9C5;
         padding: 1.125em 1.125em 1.125em 0;
         &:before
@@ -817,8 +806,8 @@ p
         }
         &:hover
         {
-            color: #434a58;
-            border-bottom-color: #434a58;
+            color: #6ed5f5;
+            border-bottom-color: #6ed5f5;
         }
     }
     .pure-tree_link
@@ -832,7 +821,7 @@ p
             text-decoration: none;
             &:hover
             {
-                color: #434a58;
+                color: #6ed5f5;
             }
         }
     }
@@ -845,8 +834,8 @@ p
         display: none;
         &:checked + label 
         {
-            color: #434a58;
-            border-bottom-color: #434a58;
+            color: #6ed5f5;
+            border-bottom-color: #6ed5f5;
         }
         &:checked ~ ul > li
         {
