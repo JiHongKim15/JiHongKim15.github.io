@@ -791,7 +791,7 @@ p
     {
         display: block;
         cursor: pointer;
-        color: #717780;
+        color: var(--post_text);
         border-bottom: 1px dashed #B0B9C5;
         padding: 1.125em 1.125em 1.125em 0;
         &:before
@@ -817,7 +817,7 @@ p
             padding: 1.500em 1.125em 0.750em 0;
             display: block;
             border-radius: .2em;
-            color: #717780;
+            color: var(--post_text);
             text-decoration: none;
             &:hover
             {
