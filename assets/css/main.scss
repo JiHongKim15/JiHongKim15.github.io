@@ -34,6 +34,7 @@
     --footer_font_a: #000;
     --border_radius: 15px;
 
+    --pure_tree: #000d45;
 }
 
 @mixin darkMode {
@@ -45,7 +46,7 @@
     --archive_title_hover: #87CDBD;
     --name_font: #FFAA00;
     --job_font: #CACCCE;
-    --nav_font: #4655a8;
+    --nav_font: #3758e9;
     --nav_font_hover: #46a891;
     --shadow_color: rgba(0, 0, 0, 1);
     --post_title: #46a891;
@@ -58,6 +59,8 @@
     --blockquote: #CACCCE;
     --footer_font_a: #d1d1d1;
     --border_radius: 1px;
+
+    --pure_tree: #3758e9;
 }
 
 
@@ -806,7 +809,7 @@ p
         }
         &:hover
         {
-            color: #8b8a22;
+            color:var(--pure_tree);
             border-bottom-color: #434a58;
         }
     }
@@ -821,7 +824,7 @@ p
             text-decoration: none;
             &:hover
             {
-                color: #8b8a22;
+                color: var(--pure_tree);
             }
         }
     }
@@ -834,7 +837,7 @@ p
         display: none;
         &:checked + label 
         {
-            color: #8b8a22;
+            color: var(--pure_tree);
             border-bottom-color: #434a58;
         }
         &:checked ~ ul > li
