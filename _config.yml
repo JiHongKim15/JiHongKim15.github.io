@@ -22,7 +22,7 @@ user:
   pic: /assets/img/profile.gif
   picAlt: "페어리몬"
   job: 개발자를 꿈꾸며
-  aboutme: true # comment this out if you don't need the 'about' page.
+  aboutme: false # comment this out if you don't need the 'about' page.
 
 exclude:
   - README.md
