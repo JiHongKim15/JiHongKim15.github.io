@@ -1,0 +1,67 @@
+I"`<h1 id="cloudendure">CloudEndure</h1>
+
+<blockquote>
+  <p>기존 legacy 환경을 그대로 머신에 복제하여 Cut-Over</p>
+</blockquote>
+
+<ul>
+  <li>rehost에서 사용 (6r)</li>
+  <li>단순히 복제해서 새로 만드는 것은 무료 (migration)</li>
+</ul>
+
+<h4 id="사전조건">사전조건</h4>
+
+<ul>
+  <li>Linux
+    <ul>
+      <li>Nitro instance 사용 필요</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="동작-방식">동작 방식</h4>
+
+<p><img src="C:\Users\jihong.kim\AppData\Roaming\Typora\typora-user-images\image-20210113140910699.png" alt="image-20210113140910699" /></p>
+
+<blockquote>
+  <p>별도의 VPC 사용 -&gt; 인터넷 연결 :x:</p>
+</blockquote>
+
+<ol>
+  <li>
+    <p>Source가 되는 서버</p>
+
+    <ul>
+      <li>
+        <p>Agent 설치 (Python 프로그램): 간단한 명령어로 설치</p>
+
+        <ul>
+          <li>python, cloudendure(443 SSL open)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>복제가 되는 CloudEndure 서버 (자동 생성)</p>
+
+    <ul>
+      <li>자동 복제</li>
+      <li>S3와 연결 (필수) &lt; NAT 시 연결 :o:
+     - 1500 통신</li>
+      <li>IAM을 통한 인증</li>
+      <li>디스크는 보존, 서버는 돌려가면서 사용</li>
+    </ul>
+  </li>
+  <li>
+    <p>CloudEndure</p>
+
+    <ul>
+      <li>443 통신</li>
+    </ul>
+  </li>
+  <li>
+    <p>Target 서버</p>
+  </li>
+</ol>
+
+:ET
