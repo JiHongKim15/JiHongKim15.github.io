@@ -20,7 +20,7 @@ comments: true
 
 #### 동작 방식
 
-![image-20210113140910699](..\_posts\image\image-20210113140910699.png)
+![image-20210113140910699](..\assets\img\image-20210113140910699.png)
 
 > 별도의 VPC 사용 -> 인터넷 연결 ❌
 

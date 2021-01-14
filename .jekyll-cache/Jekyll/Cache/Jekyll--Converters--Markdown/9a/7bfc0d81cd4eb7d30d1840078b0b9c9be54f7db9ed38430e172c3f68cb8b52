@@ -1,0 +1,119 @@
+I"�<p>💤 실행 전 작업</p>
+
+<ol>
+  <li>
+    <p>EC2 Redhat 7.5 생성</p>
+
+    <ul>
+      <li>
+        <p>EC2 시작하기 -&gt; AWS Marketplace -&gt; rhel for sap (이전버전 7.5)</p>
+
+        <blockquote>
+          <p>AWS Marketplace Subscription에서 redhat 구독 필수</p>
+        </blockquote>
+      </li>
+      <li>
+        <p>이후 명세서에 맞춰 생성</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Bastion 통해서 EC2 접속</p>
+
+    <ul>
+      <li>pem을 이용하여 Bastion 접속</li>
+      <li>root 권한x, ec2-user로 접속</li>
+    </ul>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh -i "접속할_ec2_key_이름.pem" -p 포트넘버 ec2-user@localhost
+</code></pre></div>    </div>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yum update -y
+uname -a						커널 버전 확인
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>보안 작업</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd /etc
+vi log
+chage -l ec2-user				보안 확인
+</code></pre></div>    </div>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vi /etc/login.efs				보안 변경
+</code></pre></div>    </div>
+
+    <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">MAX_DAYS </span><span class="m">90</span>
+<span class="s">MIN_DAYS </span><span class="m">1</span>
+<span class="s">LEN </span><span class="m">8</span>
+<span class="s">AGE </span><span class="m">14</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h1 id="swap">Swap</h1>
+
+<blockquote>
+  <p>Disk를 메모리처럼 사용하여 메모리가 부족한 경우 에러 방지</p>
+</blockquote>
+
+<ul>
+  <li>
+    <p>파티션 나누기		–&gt; 명령어 방법도 있지만 잘 사용하지 않음</p>
+
+    <blockquote>
+      <p>https://bono915.tistory.com/147</p>
+    </blockquote>
+
+    <p>###### 관련 명령어</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  lsblk						디스크 확인
+  swapon -s					현재 사용하고 있는 Swap 파티션 확인
+</code></pre></div>    </div>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  fdisk	/dev/nvme~			파티션 디스크 생성 및 추가
+      p
+      n						new
+      (l)						local
+      enter enter				파티션 시작 - 끝 (enter == 처음부터 끝까지)
+      p						현재 파티션 (일반 디스크)
+      t						type 변경
+      82						스왑 파티션 지정
+      p						현재 파티션 확인
+      w						현재 설정 저장
+		
+  mkswap	/dev/nvme~			생성한 파티션을 swap으로 포멧
+</code></pre></div>    </div>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  free	-m					메모리 정보 확인
+  swapon	/dev/nvme~			swap 키기
+</code></pre></div>    </div>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  vi /etc/fstab
+      /dev/nvme	swap	swap	defaults	0 0
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h1 id="mount">Mount</h1>
+
+<ul>
+  <li>mount 전 폴더 생성</li>
+</ul>
+
+<h6 id="관련-명령어">관련 명령어</h6>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkfs.xfs -f	/dev/nvme~			원하는 디스크 사용
+mount	/dev/nvme	/usr/sap	mount하는 disk -&gt; 폴더
+umount	/dev/nvme				해당하는 disk mount 해제
+</code></pre></div></div>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">vi</span><span class="err">	</span><span class="s">/etc/fstab</span><span class="err">					</span><span class="s">파일 시스템 테이블, 부팅시 마운트 정보</span>
+<span class="err">	</span><span class="s">디스크</span><span class="err">			</span><span class="s">폴더</span><span class="err">		</span><span class="s"> xfs</span><span class="err">	</span><span class="s"> defaults </span><span class="err">	</span><span class="s"> 0 </span><span class="m">0</span>
+<span class="err">	</span><span class="s">/dev/nvme~</span><span class="err">	</span><span class="s">/usr/sap</span><span class="err">	</span><span class="s">xfs</span><span class="err">		</span><span class="s">defaults</span><span class="err">	</span><span class="s">0 </span><span class="m">0</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>df -Th							디스크 확인
+</code></pre></div></div>
+
+:ET
